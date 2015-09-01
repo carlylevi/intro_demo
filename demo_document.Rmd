@@ -1,0 +1,41 @@
+---
+title: "demo_document"
+author: "Carly Levi"
+date: "August 27, 2015"
+output: html_document
+---
+
+load the dplyr and ggplot2 packages for data wrangling and visualization, respectively.
+
+```{r}
+library(dplyr)
+library(ggplot2)
+```
+
+Load Data:
+
+```{r}
+gapminder <- read.csv("https://stat.duke.edu/~mc301/data/gapminder.csv")
+```
+
+Filter for year 2007:
+
+```{r}
+gap07 <- gapminder %>%
+  filter(year == 2007)
+```
+
+Create plot for year 2007
+
+```{r}
+qplot(x = gdpPercap, y = lifeExp, data = gap07)
+```
+
+Color points by continent:
+
+```{r}
+qplot(x = gdpPercap, y = lifeExp, color = continent, data = gap07)
+```
+
+
+
